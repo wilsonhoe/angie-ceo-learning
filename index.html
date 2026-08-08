@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Learning Hub — Master AI Tools for Business | angie-ceo.com</title>
+<meta name="description" content="Learn Claude Code, AI agents, and automation tools from scratch. Plain-English guides for entrepreneurs and freelancers who want to work smarter with AI.">
+<meta name="keywords" content="AI learning, Claude Code tutorial, AI for business, learn AI, AI agents, AI automation, freelancer AI tools, Claude Code beginner">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="canonical" href="https://learning.angie-ceo.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Learning Hub — Master AI Tools for Business">
+<meta property="og:description" content="Plain-English guides for entrepreneurs who want to work smarter with AI. Claude Code, AI agents, automation — explained for normal people.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://learning.angie-ceo.com/">
+<meta property="og:image" content="https://angie-ceo.com/assets/og-learning.png">
+<meta property="og:site_name" content="angie-ceo.com">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Learning Hub — Master AI Tools for Business">
+<meta name="twitter:description" content="Plain-English guides for entrepreneurs who want to work smarter with AI.">
+<meta name="twitter:image" content="https://angie-ceo.com/assets/og-learning.png">
+
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --accent: #7c5cfc;
+    --accent-glow: rgba(124,92,252,0.25);
+    --green: #34d399;
+    --orange: #f59e0b;
+    --blue: #60a5fa;
+    --pink: #f472b6;
+    --red: #ef4444;
+    --cyan: #22d3ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 50%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin: 0 auto 32px;
+  }
+
+  /* Nav pills */
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    padding: 0 24px;
+  }
+  .nav-pills a {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .nav-pills a:hover, .nav-pills a.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Container */
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 64px;
+  }
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 24px 0 8px;
+    color: var(--text);
+  }
+  .section p, .section li {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+  .section ul {
+    padding-left: 20px;
+    margin: 12px 0;
+  }
+  .section li { margin-bottom: 6px; }
+
+  /* Concept card */
+  .concept {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .concept:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+  .concept .number {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    width: 32px; height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .concept .title {
+    display: inline;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .concept p {
+    margin-top: 12px;
+    color: var(--text-dim);
+  }
+  .concept .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .concept .before-after .col {
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .concept .before-after .col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .concept .before-after .col.before h4 { color: var(--red); }
+  .concept .before-after .col.after h4 { color: var(--green); }
+  .concept .before-after .col p {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Prompt box */
+  .prompt-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.82rem;
+    color: var(--cyan);
+    line-height: 1.6;
+  }
+  .prompt-box::before {
+    content: '⌨ TRY THIS:';
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  /* Key point */
+  .key-point {
+    background: linear-gradient(135deg, rgba(124,92,252,0.1), rgba(244,114,182,0.08));
+    border: 1px solid rgba(124,92,252,0.3);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .key-point strong { color: var(--accent); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 32px;
+    text-align: center;
+    margin: 48px 0 64px;
+  }
+  .cta-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+  }
+  .cta-section p {
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    text-align: left;
+  }
+  .cta-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cta-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .cta-card .emoji { font-size: 1.5rem; margin-bottom: 8px; }
+  .cta-card .name { font-weight: 700; margin-bottom: 4px; }
+  .cta-card .price { color: var(--accent); font-weight: 800; font-size: 1.2rem; }
+  .cta-card .desc { color: var(--text-dim); font-size: 0.85rem; margin-top: 6px; }
+  .cta-card a { display: block; margin-top: 14px; text-align: center; padding: 10px 18px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+  .cta-card a:hover { opacity: 0.85; text-decoration: none; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .faq-item summary {
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--accent); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { color: var(--text-dim); font-size: 0.9rem; margin-top: 10px; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--text-dim); }
+  footer a:hover { color: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .concept .before-after { grid-template-columns: 1fr; }
+    .hero { padding: 48px 16px 40px; }
+    .nav-pills { gap: 6px; }
+    .nav-pills a { padding: 6px 12px; font-size: 0.78rem; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Learning Hub — Master AI Tools for Business",
+  "description": "Plain-English guides for entrepreneurs who want to work smarter with AI. 30 Claude Code concepts explained for normal people.",
+  "url": "https://learning.angie-ceo.com/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "angie-ceo.com",
+    "url": "https://angie-ceo.com/"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🧠 AI LEARNING HUB</div>
+  <h1>Learn AI Tools.<br><span class="gradient">In Plain English.</span></h1>
+  <p>Stop watching 3-hour tutorials that go nowhere. These are the 30 AI concepts that actually matter — explained for normal people who run businesses, not engineers.</p>
+</section>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#getting-started" class="active">Getting Started</a>
+  <a href="#core-concepts">Core Concepts</a>
+  <a href="#intermediate">Level Up</a>
+  <a href="#advanced">Advanced</a>
+  <a href="#products">Products</a>
+</nav>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1: GETTING STARTED -->
+<!-- ══════════════════════════════════════════ -->
+<section class="section" id="getting-started">
+  <span class="section-label">START HERE</span>
+  <h2>Getting Started with AI Coding</h2>
+  <p>Most people think AI is a chatbot. You type something, it types back. Fancy autocomplete. <strong>It's not.</strong> Modern AI tools like Claude Code are the closest thing to an AI employee — they read your files, edit your documents, run commands, and ship real work. Here's how to start.</p>
+
+  <!-- Concept 1: Terminal -->
+  <div class="concept">
+    <span class="number">1</span><span class="title">The Terminal — Your New Office</span>
+    <p>AI coding tools don't live in a browser. They live in the <strong>terminal</strong> — the text-based interface on your computer where you type commands and things happen. It looks intimidating: blank screen, blinking cursor, no buttons. But here's what you get in return: instead of clicking through 15 browser tabs and copying text between windows, you type <strong>one sentence</strong> and the AI does the work — because it has access to your computer, your files, your images, and the internet.</p>
+    <div class="before-after">
+      <div class="col before">
+        <h4>😰 Before</h4>
+        <p>15 windows open, copying and pasting between ChatGPT, your files, your browser, your spreadsheet.</p>
+      </div>
+      <div class="col after">
+        <h4>😎 After</h4>
+        <p>1 window. You type what you want. The AI reads your files, makes the changes, and shows you what it did.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 2: Installation -->
+  <div class="concept">
+    <span class="number">2</span><span class="title">Installation & Setup — 2 Lines of Code</span>
+    <p>Before you start, you install the AI tool. For Claude Code:</p>
+    <p><strong>Mac/Linux:</strong> <code>curl -fsSL https://claude.ai/install.sh | bash</code><br>
+    <strong>Windows:</strong> <code>irm https://claude.ai/install.ps1 | iex</code></p>
+    <p>Then create a practice folder: <code>mkdir ~/playground && cd ~/playground</code></p>
+    <p><strong>Pricing:</strong> Max plan ($100–200/mo) for daily business use. Pro plan ($20/mo) for getting started. If you'll use it daily, go Max — the ROI shows up in week one.</p>
+    <div class="prompt-box">What are you and what do you have access to on my computer? Give me the 30-second version.</div>
+  </div>
+
+  <!-- Concept 3: File Access -->
+  <div class="concept">
+    <span class="number">3</span><span class="title">File Access — It Reads Your Actual Files</span>
+    <p>This is where AI stops being a chatbot and starts being useful. The AI reads and edits files on your computer — with your permission. Not "paste your document into a chat window." It <strong>sees</strong> your actual files. Your proposals, spreadsheets, client folders. And it edits them directly.</p>
+    <div class="before-after">
+      <div class="col before">
+        <h4>😰 Before</h4>
+        <p>Copy-pasting your proposal into ChatGPT, losing formatting, getting a generic response.</p>
+      </div>
+      <div class="col after">
+        <h4>😎 After</h4>
+        <p>"Read my proposal.docx and tighten the executive summary" — the AI opens the file, reads it, and rewrites the section IN your document.</p>
+      </div>
+    </div>
+    <div class="prompt-box">Analyze the latest CSV in my downloads folder.</div>
+  </div>
+
+  <!-- Concept 4: Image Support -->
+  <div class="concept">
+    <span class="number">4</span><span class="title">Images, PDFs & Screenshots</span>
+    <p>The AI sees images, screenshots, PDFs, diagrams, photos of whiteboards, mockups, receipts. Drop a file in and it reads it. Take a screenshot of an error message and paste it. Drag in a PDF invoice. It reads it all and works with it like text.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 2: CORE CONCEPTS -->
+<!-- ══════════════════════════════════════════ -->
+<section class="section" id="core-concepts">
+  <span class="section-label">CORE CONCEPTS</span>
+  <h2>The 7 Concepts That Change Everything</h2>
+
+  <!-- Concept 5: Tools -->
+  <div class="concept">
+    <span class="number">5</span><span class="title">Tools — AI That Acts, Not Just Talks</span>
+    <p>This is the paradigm shift. The AI doesn't chat. It <strong>acts</strong>. It reads files, edits documents, runs commands, searches your folders, fetches web pages, connects to your apps. Each action is a "tool." You see them happening in real time as it works.</p>
+    <p>Example: you ask it to find invoices. It uses the <em>search</em> tool to scan every file. Then the <em>read</em> tool to open each match. Then the <em>write</em> tool to create a summary document. You see every step.</p>
+    <div class="before-after">
+      <div class="col before">
+        <h4>😰 Before</h4>
+        <p>AI gives advice and YOU do the work. "Here are the steps to update your spreadsheet..."</p>
+      </div>
+      <div class="col after">
+        <h4>😎 After</h4>
+        <p>AI does the work and you review. "Here's your updated spreadsheet. I changed 47 rows."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 6: Prompting -->
+  <div class="concept">
+    <span class="number">6</span><span class="title">Prompting — Specific Beats Clever</span>
+    <p>The #1 mistake: vague prompts. "Help me with my marketing" = garbage in, garbage out.</p>
+    <p>"Write a 3-email welcome sequence for my dog walking business. Casual tone, mention our GPS tracking feature, each email under 200 words, include a CTA to book a free walk" = <strong>RESULTS</strong>.</p>
+    <p>Be specific. Say what you want AND what you don't want. Give constraints. Name files. Tag specific files with <code>@filename</code>. And the power move: instead of writing the perfect prompt, let the AI help you write it.</p>
+    <div class="prompt-box">I need you to write a cold email to a local pet store pitching a partnership. Ask me clarifying questions, one at a time, until you're 95% confident you can complete the task.</div>
+  </div>
+
+  <!-- Concept 7: CLAUDE.md -->
+  <div class="concept">
+    <span class="number">7</span><span class="title">CLAUDE.md — Your AI Employee's Job Description</span>
+    <p>A CLAUDE.md file is a document you write <strong>once</strong>, and the AI reads it at the start of <strong>every conversation</strong>. It's your AI employee's job description.</p>
+    <p>"Here's how my business works. Here are my brand rules. Here's what I NEVER want you to do. Here are the tools I use. Here's my writing style."</p>
+    <p>Teach it once, it knows every time. No more repeating yourself every conversation.</p>
+    <div class="before-after">
+      <div class="col before">
+        <h4>😰 Before</h4>
+        <p>"Remember, I want you to..." every single conversation. "I TOLD you yesterday, don't use this format!"</p>
+      </div>
+      <div class="col after">
+        <h4>😎 After</h4>
+        <p>Write it once in CLAUDE.md. The AI follows your rules from now on. Forever.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 8: Plan Mode -->
+  <div class="concept">
+    <span class="number">8</span><span class="title">Plan Mode — Think Before You Build</span>
+    <p>If you learn <strong>one thing</strong>, make it this. Plan mode means the AI writes out its full approach <strong>before</strong> making any changes. You review the plan, adjust it, approve it... THEN it builds.</p>
+    <p>It's like getting a proposal from a contractor before they start demolishing your kitchen. You see what they'll do, how they'll do it, and what it'll cost. Then you say "go."</p>
+    <p><strong>90% planning, 10% building.</strong> Without plan mode, the AI rewrites half your files and you have no idea what happened. With plan mode, you're the boss reviewing a proposal.</p>
+    <div class="key-point"><strong>⚡ Pro tip:</strong> Press Shift+Tab to switch to plan mode. Use it for any mission-critical task.</div>
+  </div>
+
+  <!-- Concept 9: Context Window -->
+  <div class="concept">
+    <span class="number">9</span><span class="title">Context Window — The Whiteboard</span>
+    <p>Think of the AI's memory as a <strong>whiteboard</strong>. Everything you say, every file it reads, every response it gives — all goes on the whiteboard. The whiteboard is big, but it's not infinite. When it fills up, older stuff gets summarized to make room.</p>
+    <p>This is why the AI sometimes "forgets" what you said 20 minutes ago. The whiteboard filled up and your early notes got compressed. <strong>Long, rambling conversations fill the whiteboard fast. Short, focused sessions keep it clean.</strong></p>
+  </div>
+
+  <!-- Concept 10: Tokens -->
+  <div class="concept">
+    <span class="number">10</span><span class="title">Tokens — How AI Measures Text (and Cost)</span>
+    <p>Tokens are how AI measures text. Every word you send and every word the AI sends back costs tokens. There's a max per conversation (the whiteboard size). Type <code>/usage</code> to see your spending.</p>
+    <p><strong>4 ways to keep costs down:</strong></p>
+    <ul>
+      <li>Switch to a cheaper model for simple tasks (Haiku for quick stuff, Opus for complex work)</li>
+      <li>Use <code>/clear</code> between unrelated tasks — don't let old context pile up</li>
+      <li>Use <code>/compact</code> during long sessions — compresses the whiteboard without losing key details</li>
+      <li>Use context management plugins to reduce token usage</li>
+    </ul>
+  </div>
+
+  <!-- Concept 11: Models -->
+  <div class="concept">
+    <span class="number">11</span><span class="title">3 Brains — Choose the Right One</span>
+    <p>AI gives you 3 brains to choose from:</p>
+    <ul>
+      <li><strong>Opus</strong> — the smartest, most thorough, most expensive. Use for complex projects, big rewrites, anything where quality matters more than speed.</li>
+      <li><strong>Sonnet</strong> — fast, capable, affordable. Your daily driver for everyday tasks, quick edits, routine work.</li>
+      <li><strong>Haiku</strong> — cheap and quick. For simple questions, quick lookups, anything where speed matters more than depth.</li>
+    </ul>
+    <p>You switch mid-conversation based on the task. Building a full marketing strategy? Opus. Renaming a file? Haiku.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 3: LEVEL UP -->
+<!-- ══════════════════════════════════════════ -->
+<section class="section" id="intermediate">
+  <span class="section-label">LEVEL UP</span>
+  <h2>Master the Workflow</h2>
+
+  <!-- Concept 12: /compact -->
+  <div class="concept">
+    <span class="number">12</span><span class="title">/compact — Free Up Whiteboard Space</span>
+    <p>Summarizes your conversation into a condensed version, freeing up whiteboard space <strong>without losing the key points</strong>. Like taking a photo of the whiteboard, erasing it, and writing a tight summary. You keep the important stuff, lose the fluff, and now have room for more work.</p>
+    <div class="prompt-box">/compact (after a long conversation, then ask: Summarize everything we've done so far in 3 bullet points.)</div>
+  </div>
+
+  <!-- Concept 13: /clear -->
+  <div class="concept">
+    <span class="number">13</span><span class="title">/clear — Clean Slate, Fresh Start</span>
+    <p>Wipes your current conversation. Use it when switching to a totally different task. Old context confuses new work. If you were working on email sequences and now want to brainstorm product names, <code>/clear</code> first.</p>
+  </div>
+
+  <!-- Concept 14: Sessions -->
+  <div class="concept">
+    <span class="number">14</span><span class="title">Sessions — Pick Up Where You Left Off</span>
+    <p>Each conversation is a session. Close the terminal, come back tomorrow, pick up where you left off. Type <code>claude --resume</code> and you're back in your last session. Start fresh sessions for new topics. Resume old sessions for ongoing work.</p>
+  </div>
+
+  <!-- Concept 15: Permissions -->
+  <div class="concept">
+    <span class="number">15</span><span class="title">Permission Modes — Set Your Guardrails</span>
+    <p>You control how much freedom the AI has. From "ask me before every single edit" (safe, slow, good for learning) to "do whatever you need" (fast, you trust it, good for routine tasks). Press Shift+Tab to cycle through modes. When you're new, keep guardrails tight. As you build trust, loosen them.</p>
+  </div>
+
+  <!-- Concept 16: Thinking Levels -->
+  <div class="concept">
+    <span class="number">16</span><span class="title">Thinking Levels — Tell It How Hard to Think</span>
+    <p>Low effort for quick answers ("what time zone is Denver in?"). High effort for complex problems ("restructure my entire pricing strategy"). You don't always need full brain power. Change it anytime with <code>/model</code>.</p>
+    <p>Power move: type <strong>"ultrathink"</strong> in your prompt and the AI maxes out its reasoning for one response. It thinks through every edge case. Also, it's rainbow colored 🌈</p>
+  </div>
+
+  <!-- Concept 17: Escape -->
+  <div class="concept">
+    <span class="number">17</span><span class="title">Escape — The Instant Pivot Button</span>
+    <p>Press Escape anytime to stop the AI mid-task. Like telling an employee "stop, new priority." It stops immediately and waits for your next instruction. No work is lost. You pivot.</p>
+  </div>
+
+  <!-- Concept 18: VS Code -->
+  <div class="concept">
+    <span class="number">18</span><span class="title">VS Code — Review Like a Boss</span>
+    <p>VS Code is a free app that shows your files with nice formatting, tabs, and a sidebar. The AI runs right inside it. When the AI edits 5 files, you want to <strong>see</strong> what changed. VS Code shows you exactly which lines were added, removed, or modified — color-coded, side by side.</p>
+    <p>The terminal is great for giving instructions. VS Code is great for giving instructions <em>and</em> reviewing the results.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 4: ADVANCED -->
+<!-- ══════════════════════════════════════════ -->
+<section class="section" id="advanced">
+  <span class="section-label">ADVANCED</span>
+  <h2>Power User Moves</h2>
+
+  <!-- Concept 19: Memory -->
+  <div class="concept">
+    <span class="number">19</span><span class="title">Memory vs CLAUDE.md — System vs Preferences</span>
+    <p><strong>CLAUDE.md</strong> is your instruction manual. Your playbook. You write it. It's like handing a new employee a job description on day 1: "here's how we do things, here are the tools, here are the rules." It loads every conversation automatically.</p>
+    <p><strong>Memory</strong> is the AI's personal notebook. It writes it (or you tell it to). It's like an employee jotting down notes after meetings: "boss prefers casual tone, the database field is called 'Video URL' not 'Drive URL'."</p>
+    <div class="key-point"><strong>💡 Rule of thumb:</strong> Put the SYSTEM in CLAUDE.md (API references, account IDs, workflow steps). Let PREFERENCES accumulate in memory (your style, your corrections, your quirks).</div>
+  </div>
+
+  <!-- Concept 20: Hooks -->
+  <div class="concept">
+    <span class="number">20</span><span class="title">Hooks — Automate the Boring Stuff</span>
+    <p>Hooks let you run custom scripts <strong>before or after</strong> the AI takes action. Think of them like triggers: when the AI saves a file, run a formatter. When it edits a Python file, run the linter. When it finishes a task, send you a notification.</p>
+    <p>They're defined in a settings file and run automatically — no manual intervention needed. This is how you turn the AI from "helpful assistant" into "automated employee that follows your company's processes."</p>
+  </div>
+
+  <!-- Concept 21: Skills -->
+  <div class="concept">
+    <span class="number">21</span><span class="title">Skills — Reusable Playbooks</span>
+    <p>Skills are like macros for AI. You define a workflow once (e.g., "deploy my website" or "write a blog post") and the AI follows that playbook every time. Skills combine instructions, context, and tools into repeatable processes.</p>
+    <p>Instead of explaining the same deployment steps every time, you create a skill. The AI reads it and executes. This is how you go from "telling the AI what to do" to "pressing a button and it's done."</p>
+  </div>
+
+  <!-- Concept 22: MCP -->
+  <div class="concept">
+    <span class="number">22</span><span class="title">MCP — Connect Everything</span>
+    <p>MCP (Model Context Protocol) is how you connect the AI to <strong>external apps</strong>. Built-in tools work on your computer. MCP extends those tools to the internet: Airtable, Google Drive, Slack, Notion, and hundreds more.</p>
+    <p>Each MCP server is like a plugin. Install it, configure your credentials, and suddenly the AI can read your Google Sheets, post to Slack, or update your Airtable — all from one terminal window.</p>
+    <div class="before-after">
+      <div class="col before">
+        <h4>😰 Before</h4>
+        <p>AI can only work with local files on your computer.</p>
+      </div>
+      <div class="col after">
+        <h4>😎 After</h4>
+        <p>AI reads your Google Sheets, updates Airtable, posts to Slack — all connected.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 23: Multi-Agent -->
+  <div class="concept">
+    <span class="number">23</span><span class="title">Multi-Agent Systems — AI Teams</span>
+    <p>This is the cutting edge: instead of one AI, you run a <strong>team of specialized agents</strong>. One researches. One writes. One reviews. One deploys. They coordinate through a shared system and hand off work between them.</p>
+    <p>Tools like OpenClaw (what powers this site!) let you define agents with specific roles — a CEO agent that makes decisions, a research agent that finds opportunities, an execution agent that does the work. They run 24/7, check in with each other, and escalate to you when needed.</p>
+    <div class="key-point"><strong>🚀 This is how you build an AI business:</strong> Not one chatbot, but a system of specialized agents that work while you sleep.</div>
+  </div>
+
+  <!-- Concept 24: Autonomous Workflows -->
+  <div class="concept">
+    <span class="number">24</span><span class="title">Autonomous Workflows — The AI Runs Itself</span>
+    <p>The ultimate power move: set up workflows that run on schedule without any human input. Cron jobs that trigger research. Webhooks that start processes. Agents that monitor channels and respond automatically.</p>
+    <p>This is where AI stops being a "tool you use" and becomes "a system that works for you." You set the rules, define the boundaries, and let it run. You only intervene for exceptions and approvals.</p>
+  </div>
+
+  <!-- Concept 25: Verification -->
+  <div class="concept">
+    <span class="number">25</span><span class="title">Verification — Never Trust, Always Verify</span>
+    <p>AI is powerful, but it makes mistakes. The #1 rule of working with AI: <strong>verify everything</strong>. Don't trust status claims without checking files. Don't trust "done" without seeing the output. Don't trust code without running it.</p>
+    <p>Build verification into your workflow: check file sizes, read outputs, run tests, compare before/after. The 30 seconds it takes to verify saves the 30 minutes it takes to fix a hallucinated result.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- LEARNING PATH -->
+<!-- ══════════════════════════════════════════ -->
+<section class="section">
+  <span class="section-label">ROADMAP</span>
+  <h2>Your 30-Day AI Learning Path</h2>
+  <p>Don't try to learn everything on Day 1. Follow this progression:</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:16px; margin-top:20px;">
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px;">
+      <div style="font-size:1.3rem; margin-bottom:8px;">🟢</div>
+      <h3 style="margin:0 0 8px; font-size:1rem;">Week 1: Foundations</h3>
+      <ul style="font-size:0.85rem; color:var(--text-dim); padding-left:16px;">
+        <li>Install & set up your playground</li>
+        <li>Learn file access (Concepts 3–4)</li>
+        <li>Practice specific prompting (Concept 6)</li>
+        <li>Create your CLAUDE.md (Concept 7)</li>
+      </ul>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px;">
+      <div style="font-size:1.3rem; margin-bottom:8px;">🟡</div>
+      <h3 style="margin:0 0 8px; font-size:1rem;">Week 2: Workflow</h3>
+      <ul style="font-size:0.85rem; color:var(--text-dim); padding-left:16px;">
+        <li>Master plan mode (Concept 8)</li>
+        <li>Learn context management (Concepts 9–11)</li>
+        <li>Use /compact and /clear (Concepts 12–13)</li>
+        <li>Set up VS Code (Concept 18)</li>
+      </ul>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px;">
+      <div style="font-size:1.3rem; margin-bottom:8px;">🟠</div>
+      <h3 style="margin:0 0 8px; font-size:1rem;">Week 3: Power Moves</h3>
+      <ul style="font-size:0.85rem; color:var(--text-dim); padding-left:16px;">
+        <li>Set up hooks (Concept 20)</li>
+        <li>Create your first skill (Concept 21)</li>
+        <li>Connect MCP servers (Concept 22)</li>
+        <li>Build verification habits (Concept 25)</li>
+      </ul>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px;">
+      <div style="font-size:1.3rem; margin-bottom:8px;">🔴</div>
+      <h3 style="margin:0 0 8px; font-size:1rem;">Week 4: Autonomy</h3>
+      <ul style="font-size:0.85rem; color:var(--text-dim); padding-left:16px;">
+        <li>Explore multi-agent systems (Concept 23)</li>
+        <li>Set up autonomous workflows (Concept 24)</li>
+        <li>Build a system that works while you sleep</li>
+        <li>Ship your first automated product</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- CTA / PRODUCTS -->
+<!-- ══════════════════════════════════════════ -->
+<section class="cta-section" id="products">
+  <h2>🛠 Tools to Run Your Business</h2>
+  <p>The same AI-powered thinking, built into Notion templates you can use today.</p>
+  <div class="cta-grid">
+    <div class="cta-card">
+      <div class="emoji">📊</div>
+      <div class="name">Finance Dashboard</div>
+      <div class="price">$39</div>
+      <div class="desc">7 connected databases. Income, expenses, invoicing, tax, cash flow — all in Notion.</div>
+      <a href="https://buy.stripe.com/14A14p2X4dCl4Yp1WVew800">Get Finance Dashboard</a>
+    </div>
+    <div class="cta-card">
+      <div class="emoji">📅</div>
+      <div class="name">Content Calendar</div>
+      <div class="price">$29</div>
+      <div class="desc">6 connected databases. Plan, schedule, and track content across 4 platforms.</div>
+      <a href="https://buy.stripe.com/dRm14p0OW69T0I97hfew801">Get Content Calendar</a>
+    </div>
+    <div class="cta-card">
+      <div class="emoji">📦</div>
+      <div class="name">Business Bundle ⭐</div>
+      <div class="price">$59</div>
+      <div class="desc">Everything in Finance + Content. 13 databases. Save $9 vs buying separately.</div>
+      <a href="https://buy.stripe.com/8x2eVfbtA41L4Yp9pnew802">Get the Bundle</a>
+    </div>
+    <div class="cta-card">
+      <div class="emoji">📈</div>
+      <div class="name">Crypto Trading Journal</div>
+      <div class="price">$49</div>
+      <div class="desc">Trade log, portfolio tracker, strategy journal, performance dashboard.</div>
+      <a href="https://buy.stripe.com/7sY6oJbtAgOx8aBgRPew803">Get Trading Journal</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <span class="section-label">FAQ</span>
+  <h2>Common Questions</h2>
+  <details class="faq-item">
+    <summary>Do I need a paid Notion account?</summary>
+    <p>No! The Finance Dashboard works perfectly with Notion's free plan. No paid subscription needed.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Is this a subscription?</summary>
+    <p>No, it's a one-time payment. You own the template forever. No monthly fees, no recurring charges.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Do I need coding experience to use AI tools?</summary>
+    <p>No! That's the whole point of this guide. Claude Code and similar tools understand plain English. You describe what you want, and the AI does the technical work. The terminal looks intimidating at first, but you only need to type a few commands to get started.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Which AI tool should I start with?</summary>
+    <p>Claude Code is the most business-friendly starting point. It works in plain English, has plan mode for safety, and connects to your actual files. Other great options: Cursor (for coding), OpenClaw (for autonomous agents), and ChatGPT (for quick questions).</p>
+  </details>
+  <details class="faq-item">
+    <summary>What if I'm not technical at all?</summary>
+    <p>Start with the concepts in Week 1 of our learning path. You only need to learn 2 commands to begin: how to install the tool and how to open your playground folder. Everything else you can learn by asking the AI itself.</p>
+  </details>
+  <details class="faq-item">
+    <summary>How is this different from ChatGPT?</summary>
+    <p>ChatGPT is a chatbot — you type, it types back. Claude Code is an AI employee — it reads your files, edits your documents, runs commands, and ships real work. The difference is like hiring a consultant vs hiring an employee who actually does the work.</p>
+  </details>
+</section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 angie-ceo.com — Built with 🧠 and AI agents. <a href="https://angie-ceo.com/">Main site</a> · <a href="https://angie-ceo.com/books/the-brave-little-first-day.html">Story Book</a></p>
+</footer>
+
+</body>
+</html>
